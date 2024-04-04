@@ -41,10 +41,9 @@
 
         <!-- WebView2 in the second column, spanning two rows -->
         <wv2:WebView2
-        Grid.Row="0"
-        Grid.RowSpan="2"
+        Grid.Row="1"
         x:Name="webView"
-        Source="http://localhost:3000/" Margin="84,0,0,-405" Grid.Column="1" />
+        Source="http://localhost:3000/" Margin="152,0,23,-348" Grid.Column="1" />
 
         <!-- TextBlock in the first column of the second row -->
         <TextBlock

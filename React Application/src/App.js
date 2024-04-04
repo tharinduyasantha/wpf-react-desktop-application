@@ -20,7 +20,7 @@ function App() {
   const sendMessageToWpf = () => {
     // Check if the method is available to avoid errors in a standard browser
     if (window.chrome.webview && window.chrome.webview.postMessage) {
-      window.chrome.webview.postMessage('Change text in WPF');
+      window.chrome.webview.postMessage('Changed using React button');
     }
   };
 
