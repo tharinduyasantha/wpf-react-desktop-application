@@ -1,0 +1,62 @@
+﻿<Page
+    x:Class="WPFCompact.Views.Pages.DashboardPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPFCompact.Views.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf" xmlns:pages="clr-namespace:WPFCompact.ViewModels.Pages"
+    Title="DashboardPage"
+    d:DataContext="{d:DesignInstance pages:DashboardViewModel,
+                                     IsDesignTimeCreatable=False}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+    ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    mc:Ignorable="d">
+
+    <Grid VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <!-- Column for Button and TextBlock -->
+            <ColumnDefinition Width="*" />
+            <!-- Column for WebView2 -->
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- Row for Button and WebView2 -->
+            <RowDefinition Height="*" />
+            <!-- Row for TextBlock -->
+        </Grid.RowDefinitions>
+
+        <!-- Button in the first column of the first row -->
+        <Button
+        Grid.Column="0"
+        Grid.Row="0"
+        Content="Click me!"
+        VerticalAlignment="Center"
+        Click="OnWpfButtonClickAsync" />
+
+        <!-- WebView2 in the second column, spanning two rows -->
+        <wv2:WebView2
+        Grid.Row="0"
+        Grid.RowSpan="2"
+        x:Name="webView"
+        Source="http://localhost:3000/" Margin="84,0,0,-405" Grid.Column="1" />
+
+        <!-- TextBlock in the first column of the second row -->
+        <TextBlock
+        Grid.Column="0"
+        Grid.Row="1"
+        Text="{Binding ReactMessage}"
+        VerticalAlignment="Top" Margin="0,21,691,0" Grid.ColumnSpan="2" Height="25" />
+    </Grid>
+
+
+
+
+
+
+</Page>
